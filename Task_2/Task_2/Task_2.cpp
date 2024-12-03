@@ -22,6 +22,9 @@ public:
         delete[] data; 
     }
 
+    table& operator=(const table&) = delete;
+    table(const table&) = delete;
+
     const T* operator[](int row) const {
         if (row < 0 || row >= rows) {
             std::cout<<"Число должно быть в пределах диапазона";
@@ -57,6 +60,11 @@ int main(int argc, char* argv[]) {
     test[1][2] = 7;
     std::cout << test[1][2] << std::endl; 
     std::cout << "Размер таблицы: "<< test.Size();
-  
+    //table<int> t1(2, 3);// запретил копирование и присваивание, код для теста
+    //table<int> t2(2, 3);
+    //t1 = t2;
+
+    //table<double> t1(2, 3);
+    //table<double> t3(t1);
     return 0;
 }
